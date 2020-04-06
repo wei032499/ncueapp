@@ -1,7 +1,6 @@
-<p id="veriosn">1.2</p>
+<p id="veriosn">1.3</p>
 <p id="log">
 更新日誌：\n
-1. 新增 startup 頁面\n
-2. APK下載方式更新\n
-3. APP更新測試\n
+1. 優化更新流程\n
+2. startup連線狀態檢查\n
 </p>

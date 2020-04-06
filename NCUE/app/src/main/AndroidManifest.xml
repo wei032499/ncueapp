@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.wei.ncue">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_mylauncher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_mylauncher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.wei.ncue.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filepaths" />
+        </provider>
+
+        <activity android:name="com.wei.ncue.StartupActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <data
+                    android:host="aps.ncue.edu.tw"
+                    android:pathPrefix="/sign_up"
+                    android:scheme="https" />
+                <data
+                    android:host="aps.ncue.edu.tw"
+                    android:pathPrefix="/app/show_crs.php"
+                    android:scheme="https" />
+                <data
+                    android:host="aps.ncue.edu.tw"
+                    android:pathPrefix="/app/signup.php"
+                    android:scheme="https" />
+                <data
+                    android:host="apss.ncue.edu.tw"
+                    android:pathPrefix="/sign_up"
+                    android:scheme="https" />
+                <data
+                    android:host="apss.ncue.edu.tw"
+                    android:pathPrefix="/app/show_crs.php"
+                    android:scheme="https" />
+                <data
+                    android:host="apss.ncue.edu.tw"
+                    android:pathPrefix="/app/signup.php"
+                    android:scheme="https" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.wei.ncue.MainActivity">
+            <!--<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
+
+        </activity>
+        <activity
+            android:name="com.wei.ncue.LoginActivity"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
+    </application>
+
+</manifest>
