@@ -76,22 +76,40 @@
         }
         $("form").on('submit', function (e) {
             e.preventDefault();
-            sendAjax("./login", "POST", $(this).serialize());
+            sendAjax("./api/login", "POST", $(this).serialize());
         })
-
+        $("#functions button").on('auxclick', function (e) {
+            if (e.which === 2) {
+                e.preventDefault();
+                switch ($(this).attr('id')) {
+                    case 'news':
+                        window.open('./api/news');
+                        break;
+                    case 'score':
+                        window.open('./api/score');
+                        break;
+                    case 'list':
+                        window.open('./api/event/list');
+                        break;
+                    case 'eventMe':
+                        window.open('./api/event/me');
+                        break;
+                }
+            }
+        });
         $("#functions button").on('click', function () {
             switch ($(this).attr('id')) {
                 case 'news':
-                    window.location.assign('./news');
+                    window.location.assign('./api/news');
                     break;
                 case 'score':
-                    window.location.assign('./score');
+                    window.location.assign('./api/score');
                     break;
                 case 'list':
-                    window.location.assign('./event/list');
+                    window.location.assign('./api/event/list');
                     break;
                 case 'eventMe':
-                    window.location.assign('./event/me');
+                    window.location.assign('./api/event/me');
                     break;
                 case 'logout':
                     sendAjax("./logout", "GET");
