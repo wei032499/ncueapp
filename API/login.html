@@ -35,10 +35,10 @@
                 </div>
             </form>
             <div id="functions" class="my-2">
-                <button id="news" type="button" class="btn btn-info">News</button>
-                <button id="score" type="button" class="btn btn-primary">Score</button>
-                <button id="list" type="button" class="btn btn-warning">Event List</button>
-                <button id="eventMe" type="button" class="btn btn-secondary">My Events</button>
+                <a id="news" type="button" class="btn btn-info" href="./api/news">News</a>
+                <a id="score" type="button" class="btn btn-primary" href="./api/score">Score</a>
+                <a id="list" type="button" class="btn btn-warning" href="./api/event/list">Event List</a>
+                <a id="eventMe" type="button" class="btn btn-secondary" href="./api/event/me">My Events</a>
                 <button id="logout" type="button" class="btn btn-danger">登出</button>
             </div>
         </div>
@@ -74,10 +74,7 @@
                     alert("Request failed: " + jqXHR.responseText);
             });
         }
-        $("form").on('submit', function (e) {
-            e.preventDefault();
-            sendAjax("./api/login", "POST", $(this).serialize());
-        })
+
         $("#functions button").on('auxclick', function (e) {
             if (e.which === 2) {
                 e.preventDefault();
@@ -112,7 +109,7 @@
                     window.location.assign('./api/event/me');
                     break;
                 case 'logout':
-                    sendAjax("./logout", "GET");
+                    sendAjax("./api/logout", "GET");
                     break;
             }
         });
